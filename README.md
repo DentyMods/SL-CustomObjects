@@ -14,7 +14,7 @@
  - slcustomobjects
 
 
- If you want to create schematics you need to downlaod  or have:
+ If you want to create schematics you need to download or have:
 
  Unity 2020.3.2f1
  https://unity3d.com/get-unity/download?thank-you=update&download_nid=64582&os=Win
