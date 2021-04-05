@@ -16,7 +16,9 @@
  
  
  Clone that repository and then open that cloned repo via unity editor
- 
+  ![alt text](https://cdn.discordapp.com/attachments/686969243782086702/828575872579403846/unknown.png)
+  First add your project via, Add button ( find path of that cloned repo on your pc )
+  ![alt text](https://cdn.discordapp.com/attachments/686969243782086702/828576157380902992/unknown.png)
  In Assets you should have CustomObjects scene, open that scene and do your stuff....
  
  Enter playmode to create schematics in Assets/Schematics
