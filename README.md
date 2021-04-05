@@ -5,8 +5,8 @@
  
  Commands:
 -  schematic list
--  schematic unload <name>
--  schematic load <name>
+-  schematic unload (name)
+-  schematic load (name)
 
  Permission:
  - slcustomobjects
