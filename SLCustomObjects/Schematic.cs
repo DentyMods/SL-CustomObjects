@@ -56,20 +56,20 @@ namespace SLCustomObjects
                                     Transform parentObj = GetObjectParent(schematicName, oe.ParentID);
                                     if (parentObj == null) parentObj = ob.transform;
                                     GameObject obj = new GameObject($"Obj_{schematicName}_{oe.DataID}");
+                                    obj.transform.parent = parentObj;
                                     obj.transform.localScale = oe.Scale.GetJsonVector();
                                     obj.transform.localPosition = oe.Position.GetJsonVector();
                                     obj.transform.localRotation = Quaternion.Euler(oe.Rotation.GetJsonVector());
-                                    obj.transform.parent = parentObj;
                                     break;
                                 case ObjectType.Animation:
                                     var oe2 = sm.Value.ToObject<SchematicAnimationData>();
                                     Transform parentObj2 = GetObjectParent(schematicName, oe2.ParentID);
                                     if (parentObj2 == null) parentObj = ob.transform;
                                     GameObject obj2 = new GameObject($"Obj_{schematicName}_{oe2.DataID}");
+                                    obj2.transform.parent = parentObj2;
                                     obj2.transform.localScale = oe2.Scale.GetJsonVector();
                                     obj2.transform.localPosition = oe2.Position.GetJsonVector();
                                     obj2.transform.localRotation = Quaternion.Euler(oe2.Rotation.GetJsonVector());
-                                    obj2.transform.parent = parentObj2;
                                     if (oe2.rotateAnimation)
                                     {
                                         obj2.AddComponent<AnimationRotate>().speed = oe2.rotateAnimationSpeed;
