@@ -8,6 +8,9 @@
 -  schematic unload <name>
 -  schematic load <name>
 
+ Permission:
+ - slcustomobjects
+
 
  If you want to create schematics you need to downlaod  or have:
 
