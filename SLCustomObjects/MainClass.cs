@@ -1,4 +1,5 @@
 ﻿using Exiled.API.Features;
+using Exiled.Permissions.Extensions;
 using Mirror;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -40,6 +41,11 @@ namespace SLCustomObjects
             {
                 case "SCHEMATIC":
                     ev.IsAllowed = false;
+                    if (!ev.Sender.CheckPermission("slcustomobjects"))
+                    {
+                        ev.Sender.RemoteAdminMessage("No Permission", true, "SCHEMATIC");
+                        return;
+                    }
                     if (ev.Arguments.Count != 0)
                     {
                         switch (ev.Arguments[0].ToUpper())
