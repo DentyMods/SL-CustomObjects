@@ -21,9 +21,14 @@
  First add your project via, Add button ( find path of that cloned repo on your pc )
  
  ![alt text](https://cdn.discordapp.com/attachments/686969243782086702/828576157380902992/unknown.png)
+ 
  In Assets you should have CustomObjects scene, open that scene and do your stuff....
  
+ ![alt text](https://cdn.discordapp.com/attachments/686969243782086702/828577094085771324/unknown.png)
+ 
  Enter playmode to create schematics in Assets/Schematics
+ 
+ ![alt text](https://cdn.discordapp.com/attachments/686969243782086702/828577303519952906/unknown.png)
  
  On your server put that schematic file in Exiled/Plugins/SLCustomObjects/schematics and then on server type
  
