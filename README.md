@@ -21,3 +21,7 @@ If you want to create schematics you need to downlaod  or have:
  
  SLCustomObjects.Schematic class
  
+ Example schematics ingame:
+ ![alt text](https://cdn.discordapp.com/attachments/675862006057664513/828568118296313867/unknown.png)
+ ![alt text](https://cdn.discordapp.com/attachments/675862006057664513/828565186935390238/unknown.png)
+ ![alt text](https://cdn.discordapp.com/attachments/675862006057664513/828560294371524618/unknown.png)
