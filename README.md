@@ -1,6 +1,15 @@
 # SL-CustomObjects
 
-If you want to create schematics you need to downlaod  or have:
+ Download plugin:
+ https://github.com/Killers0992/SL-CustomObjects/releases/download/1.0.0/SLCustomObjects.dll
+ 
+ Commands:
+ schematic list
+ schematic unload <name>
+ schematic load <name>
+
+
+ If you want to create schematics you need to downlaod  or have:
 
  Unity 2020.3.2f1
  https://unity3d.com/get-unity/download?thank-you=update&download_nid=64582&os=Win
