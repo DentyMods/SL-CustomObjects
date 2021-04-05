@@ -1,6 +1,8 @@
 ﻿using Exiled.API.Features;
+using Exiled.Events.EventArgs;
 using Mirror;
 using Newtonsoft.Json.Linq;
+using SLCustomObjects.Args;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,15 +15,9 @@ namespace SLCustomObjects
 {
     public class Schematic
     {
-        public static EventHandler<PickupArgs> PickupInteract;
+        public delegate void PickupInteract(PickupInteractEvent ev);
+        public static event PickupInteract PickupInteractEvent;
 
-        public class PickupArgs : EventArgs
-        {
-            public string SchematicName;
-            public Pickup Pickup;
-            public string EventName;
-        }
-        
         public static bool LoadSchematic(string path, Vector3 position)
         {
             if (File.Exists(path))
@@ -60,6 +56,9 @@ namespace SLCustomObjects
                                     Transform parentObj = GetObjectParent(schematicName, oe.ParentID);
                                     if (parentObj == null) parentObj = ob.transform;
                                     GameObject obj = new GameObject($"Obj_{schematicName}_{oe.DataID}");
+                                    obj.transform.localScale = oe.Scale.GetJsonVector();
+                                    obj.transform.localPosition = oe.Position.GetJsonVector();
+                                    obj.transform.localRotation = Quaternion.Euler(oe.Rotation.GetJsonVector());
                                     obj.transform.parent = parentObj;
                                     break;
                                 case ObjectType.Animation:
@@ -67,6 +66,9 @@ namespace SLCustomObjects
                                     Transform parentObj2 = GetObjectParent(schematicName, oe2.ParentID);
                                     if (parentObj2 == null) parentObj = ob.transform;
                                     GameObject obj2 = new GameObject($"Obj_{schematicName}_{oe2.DataID}");
+                                    obj2.transform.localScale = oe2.Scale.GetJsonVector();
+                                    obj2.transform.localPosition = oe2.Position.GetJsonVector();
+                                    obj2.transform.localRotation = Quaternion.Euler(oe2.Rotation.GetJsonVector());
                                     obj2.transform.parent = parentObj2;
                                     if (oe2.rotateAnimation)
                                     {
@@ -85,6 +87,23 @@ namespace SLCustomObjects
                 return true;
             }
             return false;
+        }
+
+        internal void PickupItem(PickingUpItemEventArgs ev)
+        {
+            if (ev.Pickup.gameObject.name.Contains("Obj_"))
+            {
+                ev.IsAllowed = false;
+                if (ev.Pickup.gameObject.TryGetComponent<PickupEvent>(out PickupEvent eve))
+                {
+                    PickupInteractEvent?.Invoke(new Args.PickupInteractEvent()
+                    {
+                        Pickup = ev.Pickup,
+                        EventName = eve.EventName,
+                        SchematicName = eve.SchematicName
+                    });
+                }
+            }
         }
 
         public static bool UnloadSchematic(string schematicName)

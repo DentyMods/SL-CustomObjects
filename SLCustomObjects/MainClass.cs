@@ -31,6 +31,7 @@ namespace SLCustomObjects
                 Directory.CreateDirectory(Path.Combine(pluginDir, "schematics"));
             base.OnEnabled();
             Exiled.Events.Handlers.Server.SendingRemoteAdminCommand += Server_SendingRemoteAdminCommand;
+            Exiled.Events.Handlers.Player.PickingUpItem += schem.PickupItem;
         }
 
         private void Server_SendingRemoteAdminCommand(Exiled.Events.EventArgs.SendingRemoteAdminCommandEventArgs ev)
