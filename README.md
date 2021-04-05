@@ -8,6 +8,8 @@
 -  schematic unload (name)
 -  schematic load (name)
 
+ NAME without schematic- just type Test if your file name is schematic-Test.json
+ 
  Permission:
  - slcustomobjects
 
