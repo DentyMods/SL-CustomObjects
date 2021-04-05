@@ -64,6 +64,17 @@ public class Schematic : MonoBehaviour
                         Scale = obj.transform.localScale.GetJsonVector()
                     };
                     break;
+                case ObjectType.Collider:
+                    susdata[obj.GetInstanceID()] = new SchematicColliderData()
+                    {
+                        DataID = obj.GetInstanceID(),
+                        ParentID = obj.transform.parent != null ? obj.transform.parent.GetInstanceID() : 0,
+                        ObjectType = ObjectType.Collider,
+                        Position = obj.transform.localPosition.GetJsonVector(),
+                        Rotation = obj.transform.localRotation.eulerAngles.GetJsonVector(),
+                        Scale = obj.transform.localScale.GetJsonVector()
+                    };
+                    break;
             }
 
         }

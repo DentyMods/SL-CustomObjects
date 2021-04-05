@@ -75,6 +75,17 @@ namespace SLCustomObjects
                                         obj2.AddComponent<AnimationRotate>().speed = oe2.rotateAnimationSpeed;
                                     }
                                     break;
+                                case ObjectType.Collider:
+                                    var oe4 = sm.Value.ToObject<SchematicColliderData>();
+                                    Transform parentObj4 = GetObjectParent(schematicName, oe4.ParentID);
+                                    if (parentObj4 == null) parentObj = ob.transform;
+                                    GameObject obj4 = new GameObject($"Obj_{schematicName}_{oe4.DataID}");
+                                    obj4.AddComponent<BoxCollider>();
+                                    obj4.transform.parent = parentObj4;
+                                    obj4.transform.localScale = oe4.Scale.GetJsonVector();
+                                    obj4.transform.localPosition = oe4.Position.GetJsonVector();
+                                    obj4.transform.localRotation = Quaternion.Euler(oe4.Rotation.GetJsonVector());
+                                    break;
                             }
                         }
 

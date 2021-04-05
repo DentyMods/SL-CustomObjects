@@ -35,6 +35,11 @@ namespace SLCustomObjects
 
     }
 
+    public class SchematicColliderData : SchematicData
+    {
+
+    }
+
 
     public class SchematicData
     {
@@ -53,7 +58,8 @@ namespace SLCustomObjects
         Ragdoll,
         Item,
         Animation,
-        Empty
+        Empty,
+        Collider
     }
 
     public class JsonVector3
